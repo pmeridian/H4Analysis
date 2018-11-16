@@ -14,6 +14,8 @@ using namespace std;
 #define MAX_ADC_CHANNELS 500000
 #define MAX_TDC_CHANNELS 200
 
+#define FNAL_TB
+
 typedef unsigned long int uint32;
 typedef unsigned long long int uint64;
  
@@ -59,6 +61,12 @@ typedef std::unordered_map<const bgc_key_t, int, key_hash, key_equal> bgc_map_t;
     DATA(unsigned int,  nAdcChannels)           \
     DATA(unsigned int,  nTdcChannels)           \
     DATA(unsigned int,  nPatterns)              \
+    DATA(unsigned int,      nTracks)		\
+    DATA(float,    trackChi2)			\
+    DATA(float,    trackX)			\
+    DATA(float,    trackY)			\
+    DATA(float,    trackXSlope)			\
+    DATA(float,    trackYSlope)			\
     DATA(unsigned int,  nDigiSamples)
 
 #define DATA_VECT_TABLE                                 \
@@ -75,7 +83,7 @@ typedef std::unordered_map<const bgc_key_t, int, key_hash, key_equal> bgc_map_t;
     DATA(unsigned int, digiBoard, nDigiSamples)         \
     DATA(unsigned int, digiGroup, nDigiSamples)         \
     DATA(unsigned int, digiChannel, nDigiSamples)       \
-    DATA(uint16_t,     digiSampleValue, nDigiSamples)
+    DATA(float,     digiSampleValue, nDigiSamples)     
 
 #include "DynamicTTree/interface/DynamicTTreeInterface.h"
 
