@@ -49,6 +49,7 @@ public:
 
     //---getters---
     inline const vector<double>* GetSamples() {return &samples_;};
+    inline const vector<double>* GetTimes() {return &times_;};
     inline int                   GetBWinMin() {return bWinMin_;}
     inline int                   GetBWinMax() {return bWinMax_;}
     inline int                   GetBIntWinMin() {return bIntWinMin_;}
@@ -92,7 +93,7 @@ public:
     void                         SetTemplate(TH1* templateWF=NULL);
     //---utils---
     void                         Reset();
-    void                         AddSample(float sample) {samples_.push_back(polarity_*sample);};
+    void                         AddSample(float sample,float time) {samples_.push_back(polarity_*sample);times_.push_back(time);};
     WFBaseline                   SubtractBaseline(int min=-1, int max=-1);
     WFFitResults                 TemplateFit(float offset=0., int lW=0, int hW=0);
     void                         EmulatedWF(WFClass& wf, float rms, float amplitude, float time);
@@ -112,6 +113,7 @@ protected:
     
 protected:
     vector<double> samples_;
+    vector<double> times_;
     float          tUnit_;
     int            polarity_;
     float          trigRef_;

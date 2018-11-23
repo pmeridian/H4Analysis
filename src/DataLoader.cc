@@ -109,10 +109,11 @@ bool DataLoader::LoadNextFile()
         currentFile_ = TFile::Open(fileList_.back().c_str(), "READ");
         if(currentFile_)
         {
-            inTree_ = new H4Tree((TTree*)currentFile_->Get("H4tree"));
-            inTree_->Init();
-            fileList_.pop_back();
-            return true;
+	  std::cout << "Opened " << fileList_.back().c_str() << std::endl;
+	  inTree_ = new H4Tree((TTree*)currentFile_->Get("H4tree"));
+	  inTree_->Init();
+	  fileList_.pop_back();
+	  return true;
         }
         else
             return false;

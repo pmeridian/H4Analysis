@@ -88,9 +88,9 @@ WFFitResults WFClassClock::GetTimeCLK(float wleft, float wright, int min, int ma
 
     double S=0, S2=0, T=0, ST=0; 
     vector<double> times, clkZeros;
-    for(int iSample=0; iSample<samples_.size(); ++iSample)
-        times.push_back(iSample*tUnit_);
-    TGraph gClockEdge(samples_.size(), times.data(), samples_.data());
+    // for(int iSample=0; iSample<samples_.size(); ++iSample)
+    //     times.push_back(iSample*tUnit_);
+    TGraph gClockEdge(samples_.size(), times_.data(), samples_.data());
     TF1 fClockEdge("fClockEdge", "[0]*tanh((x-[1])/[2])+[3]", min*tUnit_, max*tUnit_);
     
     for(int iSample=min; iSample<max; ++iSample)

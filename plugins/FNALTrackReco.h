@@ -17,7 +17,6 @@ public:
   
     //---dtor---
     ~FNALTrackReco() {};
-
    
     //---utils---
     bool Begin(CfgManager& opts, uint64* index);
@@ -26,7 +25,7 @@ public:
     
 private:
 
-    TrackTree*                             trackTree_;
+    TrackTree* trackTree_;
 };
 
 DEFINE_PLUGIN(FNALTrackReco);

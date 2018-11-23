@@ -109,7 +109,7 @@ bool DFTTemplate::ProcessEvent(H4Tree& event, map<string, PluginBase*>& plugins,
 
         //---fill new, oversampled WF
         for(int iSample=0; iSample<n_samples; ++iSample)
-            WFs_[channel]->AddSample(data[iSample]);
+	  WFs_[channel]->AddSample(data[iSample],iSample*WFs_[channel]->GetTUnit());
 
         delete fftc2r;
     }

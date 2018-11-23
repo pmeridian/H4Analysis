@@ -233,7 +233,7 @@ bool FFTAnalyzer::ProcessEvent(H4Tree& event, map<string, PluginBase*>& plugins,
 
             //---fill new WF
             for(int iSample=0; iSample<n_samples; ++iSample)
-                WFs_[channel]->AddSample(data[iSample]/n_samples);
+	      WFs_[channel]->AddSample(data[iSample]/n_samples,iSample*WFs_[channel]->GetTUnit());
 
             delete fftc2r;
         }
